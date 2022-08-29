@@ -69,4 +69,19 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<String> getUrduTranslation() {
+        SQLiteDatabase DB = this.getReadableDatabase();
+
+        Cursor cursor = DB.rawQuery("Select 'Fateh Muhammad Jalandhri' from tayah", null);
+
+        ArrayList<String> urduTranslations = new ArrayList<>();
+        if (cursor.moveToNext()) {
+            do {
+                String urduTranslation = cursor.getString(0);
+                urduTranslations.add(urduTranslation);
+            } while (cursor.moveToNext());
+        }
+        return urduTranslations;
+    }
+
 }
