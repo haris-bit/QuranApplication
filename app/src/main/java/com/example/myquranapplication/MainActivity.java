@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.english_translation:
                         Toast.makeText(getApplicationContext(),"English Translation is Clicked",Toast.LENGTH_LONG).show();
+                        Intent intent4 = new Intent(MainActivity.this, EnglishTranslation.class);
+                        startActivity(intent4);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
