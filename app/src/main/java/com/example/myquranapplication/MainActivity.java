@@ -61,18 +61,22 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case R.id.surah_view:
                         Toast.makeText(getApplicationContext(),"Surah View is Clicked",Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, SurahNames.class);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(MainActivity.this, SurahNames.class);
+                        startActivity(intent1);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
                     case R.id.para_view:
                         Toast.makeText(getApplicationContext(),"Para View is Clicked",Toast.LENGTH_LONG).show();
+                        Intent intent2 = new Intent(MainActivity.this, ParaNames.class);
+                        startActivity(intent2);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.search_by_para:
+                    case R.id.search_by_surah:
                         Toast.makeText(getApplicationContext(),"Search by Para is Clicked",Toast.LENGTH_LONG).show();
+                        Intent intent3 = new Intent(MainActivity.this, SearchBySurah.class);
+                        startActivity(intent3);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 

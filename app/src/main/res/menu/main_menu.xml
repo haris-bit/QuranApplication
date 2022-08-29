@@ -11,8 +11,8 @@
             android:title="Para View" />
 
         <item
-            android:id="@+id/search_by_para"
-            android:title="Search By Para" />
+            android:id="@+id/search_by_surah"
+            android:title="Search By Surah" />
 
         <item
             android:id="@+id/english_translation"
