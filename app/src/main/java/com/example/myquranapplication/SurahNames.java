@@ -20,9 +20,9 @@ public class SurahNames extends AppCompatActivity {
 
         DBHelper dbHelper=new DBHelper(this);
 
-        ArrayList<String> surahNames = dbHelper.getSurahNames();
+        ArrayList<Name> surahNames = dbHelper.getSurahNames();
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,surahNames);
+        SurahNamesAdapter adapter = new SurahNamesAdapter(this,surahNames);
 
         listView.setAdapter(adapter);
     }

@@ -28,21 +28,22 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-    public ArrayList<String> getSurahNames() {
+    public ArrayList<Name> getSurahNames() {
         SQLiteDatabase DB = this.getReadableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select SurahNameE from tsurah", null);
+        Cursor cursor = DB.rawQuery("Select SurahNameU,SurahNameE from tsurah", null);
 
-        ArrayList<String> surahNames=new ArrayList<>();
+        ArrayList<Name> Names=new ArrayList<>();
         if(cursor.moveToFirst())
         {
             do {
-                String surahName=cursor.getString(0);
-                surahNames.add(surahName);
+                String surahNameU=cursor.getString(0);
+                String surahNameE=cursor.getString(1);
+                Names.add(new Name(surahNameU,surahNameE));
             }while (cursor.moveToNext());
         }
 
-        return surahNames;
+        return Names;
 
     }
 
@@ -53,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return paraNames;
     }
 
-    public ArrayList<String> getEnglishTranslation(3) {
+    public ArrayList<String> getEnglishTranslation() {
         SQLiteDatabase DB = this.getReadableDatabase();
 
         Cursor cursor = DB.rawQuery("Select * from tayah where SuraID=2", null);
@@ -82,6 +83,32 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return urduTranslations;
+    }
+
+    public ArrayList<AyatModel> getAyats(String type,int no) {
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor=null;
+
+        if(type.equals("surah"))
+            cursor = DB.rawQuery("Select * from tayah WHERE SuraID = "+no, null);
+        else
+            cursor = DB.rawQuery("Select * from tayah WHERE ParaID="+no, null);
+
+
+        ArrayList<AyatModel> ayats=new ArrayList<>();
+        if(cursor.moveToFirst())
+        {
+            do {
+                String arabic=cursor.getString(3);
+                String urdu=cursor.getString(4);
+                String english=cursor.getString(6);
+
+                ayats.add(new AyatModel(arabic,urdu,english));
+            }while (cursor.moveToNext());
+        }
+
+        return ayats;
+
     }
 
 }
