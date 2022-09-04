@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
+    Button btn1;
+    Button btn2;
+
+
 
     @Override
     public void onBackPressed(){
@@ -47,6 +53,25 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView=findViewById(R.id.nav_view);
         drawerLayout=findViewById(R.id.drawer);
+        btn1 = findViewById(R.id.btnSurah);
+        btn2 = findViewById(R.id.btnPara);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SurahNames.class);
+                startActivity(intent);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ParaNames.class);
+                startActivity(intent);
+            }
+        });
+
 
         toggle=new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);

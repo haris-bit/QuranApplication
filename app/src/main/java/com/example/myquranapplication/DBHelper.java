@@ -47,6 +47,34 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<AyatModel> getAyats(String type,int no) {
+        SQLiteDatabase DB = this.getReadableDatabase();
+        Cursor cursor=null;
+
+        if(type.equals("surah"))
+            cursor = DB.rawQuery("Select * from tayah WHERE SuraID = "+no, null);
+        else
+            cursor = DB.rawQuery("Select * from tayah WHERE ParaID="+no, null);
+
+
+        ArrayList<AyatModel> ayats=new ArrayList<>();
+        if(cursor.moveToFirst())
+        {
+            do {
+                String arabic=cursor.getString(3);
+                String urdu=cursor.getString(4);
+                String english=cursor.getString(6);
+
+                ayats.add(new AyatModel(arabic,urdu,english));
+            }while (cursor.moveToNext());
+        }
+
+        return ayats;
+
+    }
+
+
+
     public String[] getParaNames() {
         QDH qdh = new QDH();
         String[] paraNames = qdh.englishParahName;
@@ -83,32 +111,6 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return urduTranslations;
-    }
-
-    public ArrayList<AyatModel> getAyats(String type,int no) {
-        SQLiteDatabase DB = this.getReadableDatabase();
-        Cursor cursor=null;
-
-        if(type.equals("surah"))
-            cursor = DB.rawQuery("Select * from tayah WHERE SuraID = "+no, null);
-        else
-            cursor = DB.rawQuery("Select * from tayah WHERE ParaID="+no, null);
-
-
-        ArrayList<AyatModel> ayats=new ArrayList<>();
-        if(cursor.moveToFirst())
-        {
-            do {
-                String arabic=cursor.getString(3);
-                String urdu=cursor.getString(4);
-                String english=cursor.getString(6);
-
-                ayats.add(new AyatModel(arabic,urdu,english));
-            }while (cursor.moveToNext());
-        }
-
-        return ayats;
-
     }
 
 }

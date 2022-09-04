@@ -24,7 +24,7 @@ public class AyatsAdapter extends ArrayAdapter<AyatModel> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         AyatModel item = getItem(position);
-        convertView = LayoutInflater.from(getContext()).inflate(R.layout.name_item,parent,false);
+        convertView = LayoutInflater.from(getContext()).inflate(R.layout.ayat_item,parent,false);
 
         TextView t1=convertView.findViewById(R.id.arabic);
         TextView t2=convertView.findViewById(R.id.urdu);

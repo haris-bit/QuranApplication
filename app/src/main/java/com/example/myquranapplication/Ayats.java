@@ -26,7 +26,7 @@ public class Ayats extends AppCompatActivity {
         String type=intent.getStringExtra("type");
         ArrayList<AyatModel> ayats= db.getAyats(type,no);
 
-AyatsAdapter ayatsAdapter= new AyatsAdapter(this,ayats);
-listView.setAdapter(ayatsAdapter);
+        AyatsAdapter ayatsAdapter= new AyatsAdapter(this,ayats);
+        listView.setAdapter(ayatsAdapter);
     }
 }
