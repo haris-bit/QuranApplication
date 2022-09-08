@@ -74,13 +74,32 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<ParaModel> getParaNames() {
 
-    public String[] getParaNames() {
         QDH qdh = new QDH();
-        String[] paraNames = qdh.englishParahName;
+        String[] urduNames = qdh.ParahName;
+        String[] engNames = qdh.englishParahName;
 
-        return paraNames;
+        ArrayList<ParaModel> paras = new ArrayList<>();
+
+        for (int i = 0; i < qdh.englishParahName.length; i++) {
+            paras.add(new ParaModel(urduNames[i], engNames[i]));
+        }
+
+        return paras;
+
     }
+
+
+
+
+
+//    public String[] getParaNames() {
+//        QDH qdh = new QDH();
+//        String[] paraNames = qdh.englishParahName;
+//
+//        return paraNames;
+//    }
 
     public ArrayList<String> getEnglishTranslation() {
         SQLiteDatabase DB = this.getReadableDatabase();

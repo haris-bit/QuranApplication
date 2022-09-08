@@ -1,27 +1,27 @@
 package com.example.myquranapplication;
 
 public class ParaModel {
-    String paraNumber;
-    String paraName;
+    String urduName;
+    String englishName;
 
-    public ParaModel(String paraNumber, String paraName) {
-        this.paraNumber = paraNumber;
-        this.paraName = paraName;
+    public ParaModel(String urduName, String englishName) {
+        this.urduName = urduName;
+        this.englishName = englishName;
     }
 
-    public String getParaNumber() {
-        return paraNumber;
+    public String getUrduName() {
+        return urduName;
     }
 
-    public void setParaNumber(String paraNumber) {
-        this.paraNumber = paraNumber;
+    public void setUrduName(String urduName) {
+        this.urduName = urduName;
     }
 
-    public String getParaName() {
-        return paraName;
+    public String getEnglishName() {
+        return englishName;
     }
 
-    public void setParaName(String paraName) {
-        this.paraName = paraName;
+    public void setEnglishName(String englishName) {
+        this.englishName = englishName;
     }
 }

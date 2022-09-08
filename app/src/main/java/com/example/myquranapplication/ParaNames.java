@@ -19,11 +19,12 @@ public class ParaNames extends AppCompatActivity {
 
         DBHelper dbHelper = new DBHelper(this);
 
-        String[] paraNames = dbHelper.getParaNames();
+        ArrayList<ParaModel> paraNames = dbHelper.getParaNames();
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,paraNames);
 
-        listView.setAdapter(adapter);
+        ParaAdapter paraAdapter = new ParaAdapter(this, paraNames);
+
+        listView.setAdapter(paraAdapter);
 
 
     }
