@@ -17,7 +17,7 @@ public class RecyclerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recycler);
         MyListData[] myListData = new MyListData[] {
                 new MyListData("Email", android.R.drawable.ic_dialog_email),
                 new MyListData("Info", android.R.drawable.ic_dialog_info),
