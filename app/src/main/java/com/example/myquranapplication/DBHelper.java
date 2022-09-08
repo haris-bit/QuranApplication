@@ -90,6 +90,22 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Name> findSurah(String inputSurah) {
+        SQLiteDatabase DB = this.getReadableDatabase();
+
+        Cursor cursor = DB.rawQuery("Select SurahNameU,SurahNameE from tsurah WHERE SurahNameE=\'"+inputSurah+"\'", null);
+
+        ArrayList<Name> Names=new ArrayList<>();
+        if(cursor.moveToFirst())
+        {
+                String surahNameU=cursor.getString(0);
+                String surahNameE=cursor.getString(1);
+                Names.add(new Name(surahNameU,surahNameE));
+        }
+
+        return Names;
+    }
+
 
 
 
