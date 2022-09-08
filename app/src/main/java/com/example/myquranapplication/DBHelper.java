@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor = DB.rawQuery("Select * from tayah WHERE ParaID="+no, null);
 
 
-        ArrayList<AyatModel> ayats=new ArrayList<>();
+        ArrayList<AyatModel> ayats = new ArrayList<>();
         if(cursor.moveToFirst())
         {
             do {
