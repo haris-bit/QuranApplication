@@ -12,16 +12,14 @@ import java.util.ArrayList;
 
 public class EnglishTranslation extends AppCompatActivity {
     ListView listView;
-    EditText et;
-    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_english_translation);
 
         listView=findViewById(R.id.english_translation_list);
-        et = findViewById(R.id.EditTextParaNumber);
-        btn = findViewById(R.id.btn);
+
 
 
         DBHelper dbHelper=new DBHelper(this);

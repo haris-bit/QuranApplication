@@ -120,12 +120,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<String> getEnglishTranslation() {
         SQLiteDatabase DB = this.getReadableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select * from tayah where SuraID=2", null);
+        Cursor cursor = DB.rawQuery("Select `Dr Mohsin Khan` from tayah", null);
 
         ArrayList<String> englishTranslations = new ArrayList<>();
         if (cursor.moveToNext()) {
             do {
-                String englishTranslation = cursor.getString(6);
+                String englishTranslation = cursor.getString(0);
                 englishTranslations.add(englishTranslation);
             } while (cursor.moveToNext());
         }
@@ -136,7 +136,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<String> getUrduTranslation() {
         SQLiteDatabase DB = this.getReadableDatabase();
 
-        Cursor cursor = DB.rawQuery("Select 'Fateh Muhammad Jalandhri' from tayah", null);
+        Cursor cursor = DB.rawQuery("Select `Fateh Muhammad Jalandhri` from tayah", null);
 
         ArrayList<String> urduTranslations = new ArrayList<>();
         if (cursor.moveToNext()) {

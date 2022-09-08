@@ -114,13 +114,11 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.urdu_translation:
                         Toast.makeText(getApplicationContext(),"Urdu Translation is Clicked",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this, UrduTranslation.class);
+                        startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_chrome_reader :
-                        Toast.makeText(getApplicationContext(),"Chrome Reader is clicked",Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
                 }
 
                 return true;
